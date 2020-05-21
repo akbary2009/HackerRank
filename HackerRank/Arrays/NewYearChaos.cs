@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace HackerRank.Arrays
 {
@@ -10,47 +9,41 @@ namespace HackerRank.Arrays
         public static void MinimumBribes(int[] q)
         {
             var numberOfBribes = 0;
-            //for (int i = 0; i < q.Length; i++)
+            for (int i = q.Length - 1; i >= 0; i--)
+            {
+                var actualPerson = q[i];
+                var expectedPerson = (i + 1);
+                var diff = actualPerson - expectedPerson;
+                if (diff > 2)
+                {
+                    Console.WriteLine(NotPossible);
+                    return;
+                }
+
+                for (int j = Math.Max(0, actualPerson - 2); j < i; j++)
+                {
+                    if (actualPerson < q[j]) numberOfBribes++;
+                }
+            }
+
+            //for (int i = 0; i < q.Length - 1; i++)
             //{
-            //    var person = q.ElementAt(i);
-            //    var currentPosition = i + 1;
-            //    if (person > (currentPosition + 2))
+            //    var actualPerson = q[i];
+            //    var expectedPerson = (i + 1);
+            //    var diff = actualPerson - expectedPerson;
+            //    if (diff > 2)
             //    {
             //        Console.WriteLine(NotPossible);
             //        return;
             //    }
-            //    else if (person > currentPosition)
-            //        numberOfBribes += person - currentPosition;
+
+            //    for (int j = i + 1; j <= Math.Min(q.Length - 1, actualPerson + 2); j++)
+            //    {
+            //        if (actualPerson > q[j]) numberOfBribes++;
+            //    }
             //}
-            //Console.WriteLine(numberOfBribes);
 
-            var initialQueue = Enumerable.Range(1, q.Length).ToList();
-            // TODO: Improve the code, it's failing for certain unit tests either due to 
-            // time-out or because of an exception.
-            for (int i = 0; i < initialQueue.Count; i++)
-            {
-                var actualPersonInPosition = q.ElementAt(i);
-                if (initialQueue.ElementAt(i) != actualPersonInPosition)
-                {
-                    var diff = initialQueue.IndexOf(actualPersonInPosition) - i;
-                    if (diff > 0 && diff < 3)
-                    {
-                        numberOfBribes += diff;
-                        var temp = initialQueue.Skip(i).Take(diff).ToArray();
-                        initialQueue.RemoveRange(i, diff);
-                        initialQueue.InsertRange(i + 1, temp);
-
-                        //for (int j = diff; j > 0; j--)
-                        //{
-                        //    var temp = initialQueue[i + j];
-                        //    initialQueue[i + j] = initialQueue[i + j - 1];
-                        //    initialQueue[i + j - 1] = temp;
-                        //}
-                    }
-                }
-            }
-
-            Console.WriteLine(initialQueue.SequenceEqual(q) ? numberOfBribes.ToString() : NotPossible);
+            Console.WriteLine(numberOfBribes);
         }
     }
 }
