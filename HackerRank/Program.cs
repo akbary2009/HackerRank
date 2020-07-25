@@ -28,7 +28,8 @@ namespace HackerRank
             //var result = Arrays.MinimumSwaps.Get(new[] { 4, 3, 1, 2 });
 
 
-            var result = Strings.SuperReducedString.Get("baab");
+            //var result = Strings.SuperReducedString.Get("baab");
+            var result = Strings.CamelCase.WordsCount("saveChangesInTheEditor");
             Console.WriteLine(result);
             Console.ReadKey();
         }
