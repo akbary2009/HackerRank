@@ -29,7 +29,8 @@ namespace HackerRank
 
 
             //var result = Strings.SuperReducedString.Get("baab");
-            var result = Strings.CamelCase.WordsCount("saveChangesInTheEditor");
+            //var result = Strings.CamelCase.WordsCount("saveChangesInTheEditor");
+            var result = Strings.StrongPassword.NumberOfNeededChars("4700");
             Console.WriteLine(result);
             Console.ReadKey();
         }
