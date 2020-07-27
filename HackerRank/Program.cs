@@ -32,7 +32,8 @@ namespace HackerRank
             //var result = Strings.CamelCase.WordsCount("saveChangesInTheEditor");
             //var result = Strings.StrongPassword.NumberOfNeededChars("4700");
             //var result = Strings.Alternate.LongestLength("muqqzbcjmyknwlmlcfqjujabwtekovkwsfjrwmswqfurtpahkdyqdttizqbkrsmfpxchbjrbvcunogcvragjxivasdykamtkinxpgasmwz");
-            var result = Strings.CaesarCipher.Encrypt("middle-Outz", 2);
+            //var result = Strings.CaesarCipher.Encrypt("middle-Outz", 2);
+            var result = Strings.MarsExploration.AlteredCount("SOSOOSOSOSOSOSSOSOSOSOSOSOS");
             Console.WriteLine(result);
             Console.ReadKey();
         }
